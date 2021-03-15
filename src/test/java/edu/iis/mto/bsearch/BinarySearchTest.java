@@ -104,4 +104,21 @@ class BinarySearchTest {
         assertEquals(key, sequence[searchResult.getPosition()]);
     }
 
+    @Test
+    void shouldNotFindElementInMultiElementSequence() {
+        // given
+        int key = 32;
+        int[] sequence = {1, 3, 7, 12, 35, 60, 80};
+
+        boolean expectedFindStatus = false;
+        int expectedPosition = -1;
+
+        // when
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+
+        // then
+        assertEquals(expectedFindStatus, searchResult.isFound());
+        assertEquals(expectedPosition, searchResult.getPosition());
+    }
+
 }
