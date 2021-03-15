@@ -33,4 +33,21 @@ class BinarySearchTest {
         assertEquals(key, sequence[searchResult.getPosition()]);
     }
 
+    @Test
+    void shouldNotFindElementInSingleElementArray() {
+        // given
+        int key = 12;
+        int[] sequence = {2};
+
+        boolean expectedFindStatus = false;
+        int expectedPosition = -1;
+
+        // when
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+
+        // then
+        assertEquals(expectedFindStatus, searchResult.isFound());
+        assertEquals(expectedPosition, searchResult.getPosition());
+    }
+
 }
