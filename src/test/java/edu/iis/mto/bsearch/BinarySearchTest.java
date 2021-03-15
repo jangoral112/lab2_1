@@ -121,4 +121,19 @@ class BinarySearchTest {
         assertEquals(expectedPosition, searchResult.getPosition());
     }
 
+    @Test
+    void shouldThrowIllegalArgumentExceptionWhenSequenceIsEmpty() {
+        // given
+        int key = 32;
+        int[] sequence = {};
+
+        // when
+        try {
+            SearchResult searchResult = BinarySearch.search(key, sequence);
+
+        // then
+            fail("Should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException ignored) { }
+    }
+
 }
