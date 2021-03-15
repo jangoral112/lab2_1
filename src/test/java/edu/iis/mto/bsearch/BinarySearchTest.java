@@ -16,7 +16,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void shouldFindElementInSingleElementArray() {
+    void shouldFindElementInSingleElementSequence() {
         // given
         int key = 12;
         int[] sequence = {12};
@@ -34,7 +34,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void shouldNotFindElementInSingleElementArray() {
+    void shouldNotFindElementInSingleElementSequence() {
         // given
         int key = 12;
         int[] sequence = {2};
@@ -48,6 +48,24 @@ class BinarySearchTest {
         // then
         assertEquals(expectedFindStatus, searchResult.isFound());
         assertEquals(expectedPosition, searchResult.getPosition());
+    }
+
+    @Test
+    void shouldFindFirstElementInMultiElementSequence() {
+        // given
+        int key = 1;
+        int[] sequence = {1, 3, 7, 12, 35, 60};
+
+        boolean expectedFindStatus = true;
+        int expectedPosition = 0;
+
+        // when
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+
+        // then
+        assertEquals(expectedFindStatus, searchResult.isFound());
+        assertEquals(expectedPosition, searchResult.getPosition());
+        assertEquals(key, sequence[searchResult.getPosition()]);
     }
 
 }
